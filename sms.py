@@ -2,7 +2,7 @@ import email, smtplib, ssl
 from providers import PROVIDERS
 import requests
 
-city = "New York City"
+city = "Boston"
 url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=5b7c0160aba9fac1ce81db90f1ed4411&units=metric'.format(city)
 res = requests.get(url)
 data = res.json()
@@ -12,7 +12,7 @@ wind_speed = data['wind']['speed'] #windspeed
 feels = data['main']['feels_like'] #what the temperature feels like
 
 message1 = (
-    f"Good Morning Brandon."
+    f"Good Evening Rachel."
     f" Today's temperature is {temp} celsius but it feels like {feels} celsius."
     f" Current wind speed is {wind_speed}."
     f" Please dress accordingly."
@@ -37,9 +37,9 @@ def send_sms_via_email(
         email.sendmail(sender_email, receiver_email, email_message)
 
 def main():
-    number = "6465205900" #6178746880
+    number = "6178746880" #6178746880
     message = message1
-    provider = "T-Mobile"
+    provider = "Verizon"
 
     sender_credentials = ("brandonzchin@gmail.com", "wmdf gsfx rybt mjew")
         
